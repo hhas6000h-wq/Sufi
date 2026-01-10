@@ -1,0 +1,8 @@
+{
+  "name": "شات ريل العراقي",
+  "description": "ردشة ريل",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

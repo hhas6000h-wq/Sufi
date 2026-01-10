@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Iraq Pro | شات ريل العراقي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --bg-dark: #020617;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+            margin: 0;
+            overflow-x: hidden;
+            user-select: none;
+        }
+        /* Custom Animations */
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up { animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(37, 99, 235, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(37, 99, 235, 0.5); }
+        }
+        .glow-border:focus { animation: glow 2s infinite; }
+
+        /* Glassmorphism Classes */
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #2563eb, #7c3aed); border-radius: 10px; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

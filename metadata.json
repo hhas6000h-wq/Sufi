@@ -1,6 +1,6 @@
 {
   "name": "شات ريل العراقي",
-  "description": "ردشة ريل",
+  "description": "دردشة ريل",
   "requestFramePermissions": [
     "camera",
     "microphone"

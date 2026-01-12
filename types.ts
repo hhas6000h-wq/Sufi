@@ -16,42 +16,30 @@ export interface User {
   isBanned: boolean;
   isVerified?: boolean;
   points: number;
-  gems: number;
+  gems: number; // Added to fix Auth.tsx missing property error
   followersCount: number;
   followingCount: number;
+  followingList: string[];
 }
 
 export interface SiteSettings {
   name: string;
-  title: string;
-  iconUrl: string;
-}
-
-export interface Post {
-  id: string;
-  userId: string;
-  username: string;
-  userAvatar: string;
-  type: 'TEXT' | 'IMAGE' | 'VIDEO' | 'REEL';
-  content: string;
-  mediaUrl?: string;
-  likes: number;
-  commentsCount: number;
-  isLiked: boolean;
-  isSaved: boolean;
-  timestamp: string;
-  isVerified?: boolean;
-  location?: string;
-  tags?: string[];
-}
-
-export interface Story {
-  id: string;
-  userId: string;
-  username: string;
-  avatar: string;
-  image: string;
-  isFollowed?: boolean;
+  title: string; // Added to fix App.tsx error
+  iconUrl: string; // Added to fix App.tsx error
+  chatBackground: string;
+  broadcast: { // Added to fix App.tsx error
+    serverUrl: string;
+    streamKey: string;
+    quality: string;
+    latencyMode: string;
+    maxViewers: number;
+    isPublic: boolean;
+    broadcastTitle: string;
+  };
+  broadcastSettings: {
+    quality: string;
+    isPublic: boolean;
+  };
 }
 
 export interface Message {
@@ -70,6 +58,33 @@ export interface DirectMessage extends Message {
   receiverId: string;
 }
 
+export interface Comment {
+  id: string;
+  userId: string;
+  username: string;
+  userAvatar: string;
+  text: string;
+  timestamp: string;
+}
+
+export interface Post {
+  id: string;
+  userId: string;
+  username: string;
+  userAvatar: string;
+  type: 'IMAGE' | 'TEXT' | 'REEL';
+  content: string;
+  mediaUrl?: string;
+  likes: number;
+  comments: Comment[]; // Updated from any[] to use Comment interface
+  isLiked: boolean;
+  isSaved?: boolean; // Added to fix Home.tsx error
+  timestamp: string;
+  isVerified?: boolean;
+  hashtags?: string[];
+  mentions?: string[];
+}
+
 export interface MicSlot {
   id: number;
   userId: string | null;
@@ -77,7 +92,14 @@ export interface MicSlot {
   avatar?: string;
   isMuted: boolean;
   isSpeaking: boolean;
-  isVideoOn?: boolean;
-  stream?: MediaStream;
-  status?: 'connecting' | 'connected' | 'disconnected';
+}
+
+export interface LiveStream {
+  id: string;
+  hostId: string;
+  hostName: string;
+  hostAvatar: string;
+  viewerCount: number;
+  title: string;
+  isLive: boolean;
 }

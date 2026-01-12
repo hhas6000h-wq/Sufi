@@ -11,7 +11,7 @@
         :root {
             --primary: #2563eb;
             --secondary: #7c3aed;
-            --bg-dark: #020617;
+            --bg-dark: #000000;
         }
         body {
             font-family: 'Cairo', sans-serif;
@@ -21,33 +21,45 @@
             overflow-x: hidden;
             user-select: none;
         }
-        /* Custom Animations */
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .animate-slide-up { animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(37, 99, 235, 0.2); }
-            50% { box-shadow: 0 0 25px rgba(37, 99, 235, 0.5); }
-        }
-        .glow-border:focus { animation: glow 2s infinite; }
-
-        /* Glassmorphism Classes */
+        /* Glassmorphism */
         .glass {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        /* Animations */
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up { animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        @keyframes soundWave {
+            0% { transform: scale(1); opacity: 0.5; border-width: 1px; }
+            50% { transform: scale(1.4); opacity: 0.2; border-width: 4px; }
+            100% { transform: scale(1.6); opacity: 0; border-width: 1px; }
+        }
+        .voice-ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 1.5rem;
+            border: 2px solid #3b82f6;
+            animation: soundWave 1.5s infinite;
+        }
+
+        /* Scrollbar */
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #2563eb, #7c3aed); border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom UI Components */
+        .chat-input-area {
+            padding-bottom: env(safe-area-inset-bottom, 32px);
+        }
     </style>
 <script type="importmap">
 {
